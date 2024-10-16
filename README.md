@@ -130,18 +130,62 @@ Below is a detailed summary of the API structure and available endpoints:
 
 ### Patients
 
+| **Method** | **Endpoint**    | **Description**                   |
+|------------|-----------------|-----------------------------------|
+| GET        | `/patients/:id` | Retrieve a patient's information. |
+| POST       | `/patients`     | Create a new patient record.      |
+| PATCH      | `/patients/:id` | Edit patient information.         |
+| DELETE     | `/patients/:id` | Delete a patient record.          |
+
 ### Cases
+
+| **Method** |     **Endpoint**     |           **Description**           |
+|:----------:|:--------------------:|:-----------------------------------:|
+| GET        | `/cases/patient/:id` | Get cases by patient ID.            |
+| GET        | `/cases`             | Retrieve all cases.                 |
+| GET        | `/cases/active`      | Get all active cases.               |
+| GET        | `/cases/admit`       | Get all admitted cases.             |
+| POST       | `/cases`             | Create a new case.                  |
+| PATCH      | `/cases/:id`         | Update case details (status/onset). |
+| PATCH      | `/cases/:id/finish`  | Mark a case as finished.            |
+| DELETE     | `/cases/:id`         | Delete a case.                      |
 
 ### BEFAST
 
+| **Method** |    **Endpoint**    |         **Description**        |
+|:----------:|:------------------:|:------------------------------:|
+| GET        | `/befast/:case_id` | Get BEFAST data for a case.    |
+| POST       | `/befast/:case_id` | Add BEFAST data for a case.    |
+| PATCH      | `/befast/:case_id` | Update BEFAST data for a case. |
+
 ### CT Scan
+
+| **Method** |      **Endpoint**     |            **Description**           |
+|:----------:|:---------------------:|:------------------------------------:|
+| GET        | `/ct_result/:case_id` | Retrieve CT scan results for a case. |
+| POST       | `/ct_result/:case_id` | Add CT scan results for a case.      |
+| PATCH      | `/ct_result/:case_id` | Update CT scan results for a case.   |
 
 ### NIHSS
 
+| **Method** |    **Endpoint**   |                **Description**               |
+|:----------:|:-----------------:|:--------------------------------------------:|
+| GET        | `/nihss/:case_id` | Get NIHSS score and checklist for a case.    |
+| POST       | `/nihss/:case_id` | Add NIHSS score and checklist for a case.    |
+| PATCH      | `/nihss/:case_id` | Update NIHSS score and checklist for a case. |
+
 ### Thrombolytic
 
-### **Injection**
+| **Method** |       **Endpoint**       |               **Description**               |
+|:----------:|:------------------------:|:-------------------------------------------:|
+| GET        | `/thrombolytic/:case_id` | Retrieve thrombolytic checklist for a case. |
+| POST       | `/thrombolytic/:case_id` | Add thrombolytic checklist for a case.      |
+| PATCH      | `/thrombolytic/:case_id` | Update thrombolytic checklist for a case.   |
 
+### Injection
 
-
-
+| **Method** |      **Endpoint**     |           **Description**           |
+|:----------:|:---------------------:|:-----------------------------------:|
+| GET        | `/injection/:case_id` | Retrieve injection data for a case. |
+| POST       | `/injection/:case_id` | Add injection data for a case.      |
+| PATCH      | `/injection/:case_id` | Update injection data for a case.   |
