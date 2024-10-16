@@ -18,4 +18,3 @@ CREATE USER appuser WITH PASSWORD '1234';
 -- Step 3: Grant necessary privileges to the new user on the database and schemas.
 GRANT ALL ON DATABASE mydb TO appuser;
 GRANT ALL ON SCHEMA public TO appuser;
-GRANT ALL ON SCHEMA drizzle TO appuser;

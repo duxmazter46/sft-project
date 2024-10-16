@@ -8,6 +8,11 @@ services:
       - sft-data:/var/lib/postgresql/data
     networks:
       - sft-net
+    restart: on-failure  # Restart only on failure
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 1  # Only one retry
 
   backend:
     container_name: sft-backend
@@ -26,6 +31,11 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_APP_USER: ${POSTGRES_APP_USER}
       POSTGRES_APP_PASSWORD: ${POSTGRES_APP_PASSWORD}
+    restart: on-failure
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 1  # Only one retry
 
   frontend:
     container_name: sft-frontend
@@ -38,6 +48,11 @@ services:
       - sft-net
     environment:
       VITE_APP_API_URL: ${VITE_APP_API_URL}
+    restart: on-failure
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 1  # Only one retry
 
 volumes:
   sft-data:
