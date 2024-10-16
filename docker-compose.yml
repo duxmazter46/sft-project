@@ -1,0 +1,46 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: sft-db
+    ports:
+      - 5432:5432
+    volumes:
+      - sft-data:/var/lib/postgresql/data
+    networks:
+      - sft-net
+
+  backend:
+    container_name: sft-backend
+    image: duxmazter/stroke-backend:latest
+    ports:
+      - 3000:3000
+    depends_on:
+      - postgres
+    networks:
+      - sft-net
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_PORT: ${POSTGRES_PORT}
+      POSTGRES_HOST: ${POSTGRES_HOST}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_APP_USER: ${POSTGRES_APP_USER}
+      POSTGRES_APP_PASSWORD: ${POSTGRES_APP_PASSWORD}
+
+  frontend:
+    container_name: sft-frontend
+    image: duxmazter/stroke-frontend:latest
+    ports:
+      - 80:80
+    depends_on:
+      - backend
+    networks:
+      - sft-net
+    environment:
+      VITE_APP_API_URL: ${VITE_APP_API_URL}
+
+volumes:
+  sft-data:
+
+networks:
+  sft-net:
