@@ -16,7 +16,7 @@ cd sft-project
 ### Step 2: Set File Permissions (Linux/MacOS)
 
 ```bash
-chmod +x initdb/init.sh
+chmod +x db/init.sh
 ```
 
 ### Step 3: Configure Environment Variables
@@ -59,7 +59,7 @@ chmod +x initdb/init.sh
 
    Stores API documentation and related files:
 
-   * `sft-api.json`: JSON file with the API specification.
+   * `sft-api.json`: JSON file with the API specification compatible using with Insomnia and Postman format.
 
    * `Stroke-Fast-Track-API-Document.pdf`: PDF document detailing API endpoints and their usage
 
@@ -88,7 +88,7 @@ chmod +x initdb/init.sh
 
    Stores SQL scripts for database management:
 
-   * `setup.sql`: Initializes tables and database schema.
+   * `setup.sql`: Initializes tables and database schema and set for permission.
 
    * `snapshot.sql`: Contains database snapshots or backups.
 
@@ -150,7 +150,7 @@ Below is a detailed summary of the API structure and available endpoints:
 | PATCH      | `/cases/:id/finish`  | Mark a case as finished.            |
 | DELETE     | `/cases/:id`         | Delete a case.                      |
 
-### BEFAST
+### BEFAST (under /cases)
 
 | **Method** |    **Endpoint**    |         **Description**        |
 |:----------:|:------------------:|:------------------------------:|
@@ -158,7 +158,7 @@ Below is a detailed summary of the API structure and available endpoints:
 | POST       | `/befast/:case_id` | Add BEFAST data for a case.    |
 | PATCH      | `/befast/:case_id` | Update BEFAST data for a case. |
 
-### CT Scan
+### CT Scan (under /cases)
 
 | **Method** |      **Endpoint**     |            **Description**           |
 |:----------:|:---------------------:|:------------------------------------:|
@@ -166,7 +166,7 @@ Below is a detailed summary of the API structure and available endpoints:
 | POST       | `/ct_result/:case_id` | Add CT scan results for a case.      |
 | PATCH      | `/ct_result/:case_id` | Update CT scan results for a case.   |
 
-### NIHSS
+### NIHSS (under /cases)
 
 | **Method** |    **Endpoint**   |                **Description**               |
 |:----------:|:-----------------:|:--------------------------------------------:|
@@ -174,7 +174,7 @@ Below is a detailed summary of the API structure and available endpoints:
 | POST       | `/nihss/:case_id` | Add NIHSS score and checklist for a case.    |
 | PATCH      | `/nihss/:case_id` | Update NIHSS score and checklist for a case. |
 
-### Thrombolytic
+### Thrombolytic (under /cases)
 
 | **Method** |       **Endpoint**       |               **Description**               |
 |:----------:|:------------------------:|:-------------------------------------------:|
@@ -182,7 +182,7 @@ Below is a detailed summary of the API structure and available endpoints:
 | POST       | `/thrombolytic/:case_id` | Add thrombolytic checklist for a case.      |
 | PATCH      | `/thrombolytic/:case_id` | Update thrombolytic checklist for a case.   |
 
-### Injection
+### Injection (under /cases)
 
 | **Method** |      **Endpoint**     |           **Description**           |
 |:----------:|:---------------------:|:-----------------------------------:|
