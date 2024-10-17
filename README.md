@@ -13,7 +13,7 @@ git clone https://github.com/duxmazter46/sft-project.git
 cd sft-project
 ```
 
-### Step 2: Set File Permissions (Linux/Mac)
+### Step 2: Set File Permissions (Linux/MacOS)
 
 ```bash
 chmod +x initdb/init.sh
