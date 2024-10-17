@@ -40,7 +40,7 @@ chmod +x initdb/init.sh
 * Linux/Mac: Execute:
 
    ```bash
-   ./initdb/init.sh
+   ./init.sh
    ```
 
 ### Step 5: Start the Application
